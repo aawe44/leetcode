@@ -29,10 +29,10 @@ class RandomizedSet:
         if val not in self.value_to_index:
             return False
 
-        index = self.value_to_index[val]
+        idx = self.value_to_index[val]
 
-        self.nums[index] = self.nums[len(self.nums) - 1]
-        self.value_to_index[self.nums[len(self.nums) - 1]] = index
+        self.nums[idx] = self.nums[len(self.nums) - 1]
+        self.value_to_index[self.nums[len(self.nums) - 1]] = idx
 
         self.nums.pop()
         del self.value_to_index[val]
