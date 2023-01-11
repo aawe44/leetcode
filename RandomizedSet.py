@@ -17,8 +17,9 @@ class RandomizedSet:
         if val in self.value_to_index:
             return False
 
+        self.value_to_index[val] = len(self.nums)
         self.nums.append(val)
-        self.value_to_index[val] = len(self.nums) - 1
+
         return True
 
     def remove(self, val: int) -> bool:
@@ -30,9 +31,8 @@ class RandomizedSet:
 
         index = self.value_to_index[val]
 
-        if index != len(self.nums) - 1:
-            self.nums[index] = self.nums[-1]
-            self.value_to_index[self.nums[-1]] = index
+        self.nums[index] = self.nums[-1]
+        self.value_to_index[self.nums[-1]] = index
 
         self.nums.pop()
         del self.value_to_index[val]
@@ -44,5 +44,4 @@ class RandomizedSet:
         Get a random element from the set.
         """
 
-        index = random.randint(0, len(self.nums) - 1)
-        return self.nums[index]
+        return self.nums[random.randint(0, len(self.nums) - 1)]
