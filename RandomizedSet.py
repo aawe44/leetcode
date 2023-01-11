@@ -31,8 +31,8 @@ class RandomizedSet:
 
         index = self.value_to_index[val]
 
-        self.nums[index] = self.nums[-1]
-        self.value_to_index[self.nums[-1]] = index
+        self.nums[index] = self.nums[len(self.nums) - 1]
+        self.value_to_index[self.nums[len(self.nums) - 1]] = index
 
         self.nums.pop()
         del self.value_to_index[val]
